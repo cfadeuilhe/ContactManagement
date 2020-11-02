@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .grid{
+                display: grid;
+                grid-template-columns: auto 1fr;
+                border:solid 1px cadetblue;
+                font-family: monospace;
+            }
+
+            .grid > div{
+                padding:5px;
+            }
+
+            .grid > div:nth-child(2n-1){
+                font-style: bold;
+                background-color: cadetblue;
+                color:white;
+            }
+        </style>
+    </head>
+<body>
+    <script>
+        document.body.innerHTML='<b>Gras</b> Non gras. <a href="https://google.fr">Lien vers Google</a>';
+    </script>
+</body>
+</html>

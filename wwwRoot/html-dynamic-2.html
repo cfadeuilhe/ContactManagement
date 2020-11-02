@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .grid{
+                display: grid;
+                grid-template-columns: auto 1fr;
+                border:solid 1px cadetblue;
+                font-family: monospace;
+            }
+
+            .grid > div{
+                padding:5px;
+            }
+
+            .grid > div:nth-child(2n-1){
+                font-style: bold;
+                background-color: cadetblue;
+                color:white;
+            }
+        </style>
+    </head>
+<body>
+    <script>
+        let bHtml = document.createElement('b');
+        bHtml.innerText="Gras. ";
+        let textHtml = document.createTextNode('Non gras. ');
+        let aHtml = document.createElement('a');
+        aHtml.setAttribute('href', 'https://google.fr');
+        aHtml.innerText='Lien vers Google';
+
+        document.body.appendChild(bHtml);
+        document.body.appendChild(textHtml);
+        document.body.appendChild(aHtml);
+    </script>
+</body>
+</html>

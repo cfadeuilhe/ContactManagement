@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .grid{
+                display: grid;
+                grid-template-columns: auto 1fr;
+                border:solid 1px cadetblue;
+                font-family: monospace;
+            }
+
+            .grid > div{
+                padding:5px;
+            }
+
+            .grid > div:nth-child(2n-1){
+                font-style: bold;
+                background-color: cadetblue;
+                color:white;
+            }
+        </style>
+    </head>
+<body>
+    <div class="grid">
+        <div>Nom:</div>
+        <div>LEBRETON</div>
+        <div>Prénom:</div>
+        <div>Michël</div>
+
+        <div>Nom:</div>
+        <div>AFFEUX</div>
+        <div>Prénom:</div>
+        <div>Pierre</div>
+
+        <div>Nom:</div>
+        <div>NEMARD</div>
+        <div>Prénom:</div>
+        <div>Jean</div>
+    </div>
+</body>
+</html>
