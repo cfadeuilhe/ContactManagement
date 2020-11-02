@@ -10,18 +10,20 @@
     <div id="app">
         <h1>{{title}}</h1>
         <ul id="list">
-            <li v-for="item in contactList" :key="item.prenom">
+            <li v-for="item in contactList" :key="item.id">
                 {{item.prenom}} {{item.nom}}
             </li>
         </ul>
-    <button v-on:click="addToList"> Ajouter un contact </button>
-    <button-add-contact></button-add-contact>
+        <input v-model=inputContact.prenom> </input>
+        <input v-model=inputContact.nom> </input>
+        <button v-on:click="addToList"> Ajouter un contact </button>
+        <button-add-contact></button-add-contact>
     </div>
     <script>
         let contactList = [
-            { prenom:'Michaël', nom:'Lebreton' },
-            { prenom:'Pierre', nom:'Affeux' },
-            { prenom:'Jean', nom:'Nemard' }
+            { id:1, prenom:'Michaël', nom:'Lebreton' },
+            { id:2, prenom:'Pierre', nom:'Affeux' },
+            { id:3, prenom:'Jean', nom:'Nemard' }
         ];
 
         Vue.component('button-add-contact', {
@@ -35,11 +37,15 @@
             el:document.getElementById('app'),
             data: {
                 title: 'Liste de contacts',
-                contactList: contactList
+                contactList: contactList,
+                inputContact: {
+                    prenom: '',
+                    nom:''
+                }
             },
             methods: {
                 addToList() {
-                    let contactToAdd = {prenom:'Bob', nom:'Vance', id:this.contactList.length+1};
+                    let contactToAdd = {id:this.contactList.length+1, prenom:this.inputContact.prenom, nom:this.inputContact.nom};
                     this.contactList.push(contactToAdd);
                 }
             }
