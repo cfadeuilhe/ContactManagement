@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=800px, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://fr.vuejs.org/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{title}}</h1>
+        <ul id="list">
+            <li v-for="item in contactList" :key="item.prenom">
+                {{item.prenom}} {{item.nom}}
+            </li>
+        </ul>
+    <button v-on:click="addToList"> Ajouter un contact </button>
+    <button-add-contact></button-add-contact>
+    </div>
+    <script>
+        let contactList = [
+            { prenom:'Michaël', nom:'Lebreton' },
+            { prenom:'Pierre', nom:'Affeux' },
+            { prenom:'Jean', nom:'Nemard' }
+        ];
+
+        Vue.component('button-add-contact', {
+            data: function () {
+                return {contactList};
+            },
+            template : `<button v-on:click="contactList.push({prenom:'Phyllis', nom:'Lapin'})"> Ajouter un contact </button>`
+        });
+
+        var vm = new Vue({ 
+            el:document.getElementById('app'),
+            data: {
+                title: 'Liste de contacts',
+                contactList: contactList
+            },
+            methods: {
+                addToList() {
+                    let contactToAdd = {prenom:'Bob', nom:'Vance', id:this.contactList.length+1};
+                    this.contactList.push(contactToAdd);
+                }
+            }
+        });
+    </script>
+   </body>
+</html>
