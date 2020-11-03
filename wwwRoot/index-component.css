@@ -1,0 +1,83 @@
+:root{
+    --background-color:white;
+    --text-color:gray;
+    --danger-color:red;
+    --primary-color:blue;
+    --success-color:green;
+    --warning-color: orange;
+    
+    --button-border:none;
+    --button-color:var(--background-color);
+    --button-background-color:var(--primary-color);
+    --button-icon-size:32px;
+
+    --space:10px;
+    --margin:3px;
+}
+
+body{
+    background-color: var(--background-color);
+    color:var(--text-color);
+}
+
+.icon-button{
+    border:var(--button-border);
+    background-color: var(--button-background-color);
+    color: var(--button-color);
+    padding:var(--space);
+    margin: var(--margin);
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center; 
+    justify-items: start;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition-property: all;
+    transition-duration: 0.5s;
+}
+
+.icon-button:hover{
+    transform: scale(1.02) rotate(1deg);
+}
+
+.icon-button > img{
+    width: var(--button-icon-size);
+    height: var(--button-icon-size);
+}
+
+.icon-button-success{
+    --button-background-color:var(--success-color);
+}
+
+.icon-button-warning{
+    --button-background-color:var(--warning-color);
+}
+
+.icon-button-danger{
+    --button-background-color:var(--danger-color);
+}
+
+.icon-button-left {
+    grid-template-columns: auto 1fr;
+}
+
+.icon-button-left > img{
+    grid-column: 1;
+    margin-right: var(--space);
+}
+
+
+.icon-button-right {
+    grid-template-columns: 1fr auto;
+}
+
+.icon-button-right > img{
+    grid-column: 2;
+    margin-left: var(--space);
+}
+
+.buttonsContainer{
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}

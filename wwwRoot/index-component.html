@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=800px, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3.0.0/dist/vue.global.js"></script>    
+    <link rel="stylesheet" href="index-component.css">
+</head>
+<body>
+    <div id="app">
+        <div class="buttonsContainer">
+            <icon-button icon="/images/add.svg" title="Ceci est un titre" position="left" type="primary">Do it</icon-button>
+            <icon-button icon="/images/remove.svg" title="Ceci est un titre" position="right" type="danger">Annuler</icon-button>
+            <icon-button icon="/images/remove.svg" title="Ceci est un titre" position="left" type="success">Yes</icon-button>
+            <icon-button icon="/images/remove.svg" title="Ceci est un titre" position="right" type="warning">Are you sure</icon-button>
+            <icon-button icon="/images/remove.svg" title="Ceci est un titre" position="right" type="warning"
+                v-on:click="buttonClick()"><u>Are</u> <i>you</i> <b>sure</b></icon-button>
+        </div>
+    </div>
+    <script src="index-component.js"></script>
+</body>
+</html>
