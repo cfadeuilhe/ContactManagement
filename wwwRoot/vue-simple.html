@@ -4,52 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=800px, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://fr.vuejs.org/js/vue.js"></script>
+    <script src="https://fr.vuejs.org/js/vue.js"></script>  
+    <link rel="stylesheet" href="vue-simple.css">
 </head>
 <body>
     <div id="app">
-        <h1>{{title}}</h1>
-        <ul id="list">
-            <li v-for="item in contactList" :key="item.id">
-                {{item.prenom}} {{item.nom}}
-            </li>
-        </ul>
-        <input v-model=inputContact.prenom> </input>
-        <input v-model=inputContact.nom> </input>
-        <button v-on:click="addToList"> Ajouter un contact </button>
-        <button-add-contact></button-add-contact>
+        <div>
+            <h1>{{title}}</h1>
+            <button class="reload" v-on:click="loadContacts()"> Charger les contacts </button>
+            <button class="reload" v-on:click="saveContacts()"> Sauvegarder les contacts </button>
+        </div>
+        <table id="list">
+            <tr v-for="item in contactList" :key="item.id">
+                <td>{{item.id}} </td>
+                <td>{{item.prenom}} </td>
+                <td>{{item.nom}}</td>
+                <td><button class="danger" v-on:click="deleteContact(item)">Supprimer</button></td>
+            </tr>
+        </table>
+
+        <fieldset>
+            <div class="message">{{message}}</div>
+            <label>Prénom</label>
+            <input v-model=inputContact.prenom></input>
+            <label>Nom</label>
+            <input v-model=inputContact.nom> </input>
+            <button class="add" v-on:click="addToList()"> Ajouter un contact </button>
+        </fieldset>
     </div>
-    <script>
-        let contactList = [
-            { id:1, prenom:'Michaël', nom:'Lebreton' },
-            { id:2, prenom:'Pierre', nom:'Affeux' },
-            { id:3, prenom:'Jean', nom:'Nemard' }
-        ];
 
-        Vue.component('button-add-contact', {
-            data: function () {
-                return {contactList};
-            },
-            template : `<button v-on:click="contactList.push({prenom:'Phyllis', nom:'Lapin'})"> Ajouter un contact </button>`
-        });
 
-        var vm = new Vue({ 
-            el:document.getElementById('app'),
-            data: {
-                title: 'Liste de contacts',
-                contactList: contactList,
-                inputContact: {
-                    prenom: '',
-                    nom:''
-                }
-            },
-            methods: {
-                addToList() {
-                    let contactToAdd = {id:this.contactList.length+1, prenom:this.inputContact.prenom, nom:this.inputContact.nom};
-                    this.contactList.push(contactToAdd);
-                }
-            }
-        });
-    </script>
+    <script src="vue-simple.js"></script>
    </body>
 </html>
