@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=800px, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3.0.0/dist/vue.global.js"></script>    
+    <link rel="stylesheet" href="amazon.css">
+</head>
+<body>
+    <div id="app">
+        <amazon-header menulogo="/images/menu.svg" 
+                        cartlogo="/images/cart.svg">
+        </amazon-header>
+        <div class="products-container">
+            <amazon-product v-for="product in productList" :key="product.id"
+                        v-bind:image="product.image" 
+                        v-bind:name="product.name"
+                        v-bind:description="product.description"
+                        v-bind:price="product.price"
+                        v-bind:product="product">
+            </amazon-product>
+        </div>
+    </div>
+    <script src="amazon.js"></script>
+</body>
+</html>

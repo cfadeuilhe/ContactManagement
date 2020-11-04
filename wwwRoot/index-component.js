@@ -13,9 +13,9 @@ app.component('icon-button', {
         position: String,
         type: String
     },
-    template: `<button 
-        v-bind:title="title" v-bind:class="'icon-button icon-button-'+position+' icon-button-'+type">
-        <img v-bind:src="icon"/>
-        <content><slot></slot></content>
-        </button>`
+    template: ` <button 
+                    v-bind:title="title" v-bind:class="'icon-button icon-button-'+position+' icon-button-'+type">
+                    <img v-bind:src="icon"/>
+                    <content><slot></slot></content>
+                </button>`
 }).mount('#app')
